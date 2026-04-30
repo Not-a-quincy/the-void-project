@@ -73,3 +73,17 @@ submitName.addEventListener("click", async () => {
         console.error('Network error saving name:', err);
     }
 });
+
+const actualButton = document.querySelector(".button");
+
+// --- The Luck Logic ---
+actualButton.addEventListener("click", () => {
+    // This only triggers if they are fast enough to click before it jumps
+    alert("By sheer luck, you have touched the untouchable. You have found meaning in the Void.");
+    
+    // Optional: Add a special effect, like changing the background color temporarily
+    document.body.style.backgroundColor = "#1a1a1a"; 
+    setTimeout(() => {
+        document.body.style.backgroundColor = "black";
+    }, 500);
+});

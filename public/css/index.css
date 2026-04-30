@@ -11,6 +11,7 @@ body{
     padding: 0 !important;
     height: 100vh;
     width: 100vw;
+    user-select: none;
 }
 h2,
 h1{
@@ -46,7 +47,6 @@ main{
     text-align: center;
     padding: 2rem 1rem;
     gap: 2rem;
-    /* background-color: pink; */
 }
 .h1_span{
     font-style: italic;
