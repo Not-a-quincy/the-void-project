@@ -1,25 +1,22 @@
-import mysql from 'mysql2';
+import { Pool } from '@neondatabase/serverless';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL
 });
 
-const db = pool.promise();
+const db = pool;
 
 export default db;
 
 // Connection Test
-db.getConnection()
-    .then(connection => {
-        console.log('✅ SQL Connection established successfully.');
-        connection.release(); // Return it to the pool
+db.connect()
+    .then(client => {
+        console.log('✅ PostgreSQL Connection established successfully.');
+        client.release();
     })
     .catch(err => {
-        console.error('❌ SQL Connection failed:', err.message);
+        console.error('❌ PostgreSQL Connection failed:', err.message);
     });
