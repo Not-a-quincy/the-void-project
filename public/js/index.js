@@ -90,6 +90,8 @@ actualButton.addEventListener("click", () => {
 });
 
 
+//cancels the tab key shortcut
+
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Tab') {
         event.preventDefault();
