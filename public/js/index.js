@@ -5,6 +5,7 @@ const closeWhy = document.getElementById("close-why");
 const submitName = document.getElementById("submit-name");
 const userNameInput = document.getElementById("user-name");
 
+
 // --- 1. Helper: Create & Animate Ghost ---
 function createGhost(name) {
     const ghost = document.createElement("div");
@@ -86,4 +87,13 @@ actualButton.addEventListener("click", () => {
     setTimeout(() => {
         document.body.style.backgroundColor = "black";
     }, 500);
+});
+
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab') {
+        event.preventDefault();
+        console.warn("CRITICAL_ERROR: Tab-navigation is forbidden in the Void.");
+        alert("The Tab key has been confiscated for 'Security Reasons'. Please continue your pointless pursuit manually.");
+    }
 });
